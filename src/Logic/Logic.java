@@ -5,9 +5,6 @@ import UI.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by Calvin on 12/11/2015.
- */
 
 
 public class Logic {
@@ -61,10 +58,10 @@ public class Logic {
 
         screen.getstartgame().addActionListener(new UserActionListener());
 
-        screen.gethighscore().addActionListener(new UserActionListener());
+        screen.gethighscore().ActionListener(new UserActionListener());
 
-        screen.getgamepanel().addActionListener(new UserActionListener());
-        screen.show(screen.GamePanel);
+        //screen.getgamepanel().addActionListener(new UserActionListener());
+        //screen.show(screen.GamePanel);
 
     }
 
@@ -126,6 +123,5 @@ public class Logic {
 
     }
 }
-
-
+	
 

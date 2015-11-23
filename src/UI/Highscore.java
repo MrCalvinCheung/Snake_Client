@@ -4,12 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-/**
- * Created by Calvin on 19/11/2015.
- */
-public class Highscore extends JPanel{
-
-
+public class Highscore extends JPanel {
     private JTable table;
     private JButton btnMainMenu;
 
@@ -39,12 +34,9 @@ public class Highscore extends JPanel{
         return btnMainMenu;
     }
 
-    public void addActionListener(ActionListener l){
+    public void ActionListener(ActionListener l){
         btnMainMenu.addActionListener(l);
     }
 
 
 }
-
-
-

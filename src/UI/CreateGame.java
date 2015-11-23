@@ -1,14 +1,11 @@
 package UI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by Calvin on 19/11/2015.
- */
 public class CreateGame extends JPanel {
-
     private JTextField gameName;
     private JButton btnCreateGame;
     private JButton btnMainMenu;
@@ -65,5 +62,6 @@ public class CreateGame extends JPanel {
         btnCreateGame.addActionListener(l);
         btnMainMenu.addActionListener(l);
     }
-}
 
+}
+	

@@ -1,14 +1,9 @@
 package UI;
 
-
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-/**
- * Created by Calvin on 19/11/2015.
- */
-public class DeleteGame extends JPanel{
-
+public class DeleteGame extends JPanel {
 
     private JButton btnDeleteGame;
     private JButton btnMainMenu;
@@ -40,6 +35,10 @@ public class DeleteGame extends JPanel{
         return btnMainMenu;
     }
 
+    //public void actionPerformedDeleteGame (ActionListener l) {
+
+    //btnDeleteGame.addActionListener(l);
+    //btnMainMenu.addActionListener(l);
 
     public void addActionListener(ActionListener l) {
 
@@ -48,6 +47,3 @@ public class DeleteGame extends JPanel{
     }
 
 }
-
-
-
