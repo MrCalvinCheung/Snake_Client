@@ -1,9 +1,8 @@
 package SDK;
 
-import example.Config;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
+import example.Config;
 
 import java.util.ArrayList;
 
@@ -14,24 +13,23 @@ public class Api {
 
     ServerConnection serverConnection = new ServerConnection();
 
-    public String login(BIConversion.User user) {
+    public String login(User user) {
 
         return serverConnection.post(new Gson().toJson(user), "login");
 
     }
 
-    public ArrayList <BIConversion.User> getUsers(){
+    public ArrayList <User> getUsers(){
 
         String jsonOfUsers = serverConnection.get(Config.getServerAdresseAllUsers());
 
-        return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<BIConversion.User>>(){}.getType());
+        return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
 
     }
 
-    /*public DeleteGame(Game gameid) {
+    // public DeleteGame(Game gameid) {
 
-        return serverConnection.post(new Gson().fromJson(gameid),"games");
-    }*/
-
+    //     return serverConnection.post(new Gson().fromJson(gameid), "games");
+    // }
 
 }

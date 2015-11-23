@@ -1,5 +1,6 @@
 package Logic;
 
+import SDK.Logic;
 import UI.*;
 
 import java.awt.event.ActionEvent;
@@ -7,7 +8,7 @@ import java.awt.event.ActionListener;
 
 
 
-public class Logic {
+public class Loogic {
 
     private Screen screen;
     private UserMenu usermenu;
@@ -19,7 +20,7 @@ public class Logic {
 
 
 
-    public Logic() {
+    public Loogic() {
 
 
 
@@ -84,6 +85,12 @@ public class Logic {
         public void actionPerformed(ActionEvent e){
 
             if (e.getSource() == screen.getlogin().getBtnLogin()) {
+
+                Login login = new Login();
+                Logic logic = new Logic();
+                logic.login(login.getUsername(), login.getPassword());
+
+
                 screen.show(screen.UserMenu);
 
             }

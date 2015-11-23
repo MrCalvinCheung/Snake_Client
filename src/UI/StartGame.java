@@ -13,15 +13,16 @@ public class StartGame extends JPanel {
      */
     public StartGame() {
         setLayout(null);
+        setBounds(100, 100, 630, 388);
 
         JLabel lblNewLabel = new JLabel("Start Game");
-        lblNewLabel.setBounds(175, 32, 106, 16);
+        lblNewLabel.setBounds(262, 32, 106, 16);
         lblNewLabel.setFont(new Font("Lucida Grande", Font.BOLD, 16));
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         add(lblNewLabel);
 
         table = new JTable();
-        table.setBounds(185, 70, 235, 198);
+        table.setBounds(262, 70, 303, 254);
         add(table);
 
         btnStartGame = new JButton("Start Game");
@@ -42,6 +43,12 @@ public class StartGame extends JPanel {
     public JButton getBtnMainMenu(){
         return btnMainMenu;
     }
+
+
+    //public void actionPerformedDeleteGame (ActionListener l) {
+
+    //btnDeleteGame.addActionListener(l);
+    //btnMainMenu.addActionListener(l);
 
     public void addActionListener(ActionListener l) {
 

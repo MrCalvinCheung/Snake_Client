@@ -1,6 +1,6 @@
 package example;
 
-import Logic.Logic;
+import Logic.Loogic;
 /**
  * Created by Calvin on 29/10/2015.
  */
@@ -9,8 +9,11 @@ public class Main {
 
     public static void main(String args[]) {
 
-        Logic start = new Logic();
+        Loogic start = new Loogic();
         start.run();
+
+
+        
 
 
     }

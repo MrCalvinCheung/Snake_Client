@@ -14,20 +14,21 @@ public class CreateGame extends JPanel {
      */
     public CreateGame() {
         setLayout(null);
+        setBounds(100, 100, 630, 388);
 
         JLabel lblCreateGame = new JLabel("Create Game");
         lblCreateGame.setFont(new Font("Lucida Grande", Font.BOLD, 16));
         lblCreateGame.setHorizontalAlignment(SwingConstants.CENTER);
-        lblCreateGame.setBounds(138, 27, 159, 50);
+        lblCreateGame.setBounds(235, 27, 159, 50);
         add(lblCreateGame);
 
         JLabel lblGameName = new JLabel("Game name");
         lblGameName.setHorizontalAlignment(SwingConstants.CENTER);
-        lblGameName.setBounds(43, 109, 93, 22);
+        lblGameName.setBounds(268, 78, 93, 22);
         add(lblGameName);
 
         gameName = new JTextField();
-        gameName.setBounds(159, 106, 151, 28);
+        gameName.setBounds(239, 106, 151, 28);
         add(gameName);
         gameName.setColumns(10);
 
@@ -36,11 +37,11 @@ public class CreateGame extends JPanel {
             public void actionPerformed(ActionEvent e) {
             }
         });
-        btnCreateGame.setBounds(159, 146, 138, 50);
+        btnCreateGame.setBounds(50, 50, 138, 50);
         add(btnCreateGame);
 
         btnMainMenu = new JButton("Main Menu");
-        btnMainMenu.setBounds(159, 208, 138, 50);
+        btnMainMenu.setBounds(50, 115, 138, 50);
         add(btnMainMenu);
 
     }
@@ -56,6 +57,12 @@ public class CreateGame extends JPanel {
     public String getgameName(){
         return gameName.getText();
     }
+
+
+    //public void actionPerformedDeleteGame (ActionListener l) {
+
+    //btnDeleteGame.addActionListener(l);
+    //btnMainMenu.addActionListener(l);
 
     public void addActionListener(ActionListener l) {
 

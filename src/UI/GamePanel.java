@@ -1,16 +1,17 @@
 package UI;
 
-import javax.swing.*;
-import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 
-/**
- * Created by Calvin on 19/11/2015.
- */
 public class GamePanel extends JPanel {
 
-
-    public void addActionListener(ActionListener l) {
+    /**
+     * Create the panel.
+     */
+    public GamePanel() {
+        setLayout(null);
+        setBounds(100, 100, 630, 388);
 
 
     }
+
 }

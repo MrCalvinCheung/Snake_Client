@@ -18,35 +18,36 @@ public class UserMenu extends JPanel {
      */
     public UserMenu() {
         setLayout(null);
+        setBounds(100, 100, 619, 388);
 
         JLabel Welcome = new JLabel("Main Menu");
-        Welcome.setBounds(134, 28, 229, 27);
+        Welcome.setBounds(200, 28, 229, 27);
         Welcome.setHorizontalAlignment(SwingConstants.CENTER);
         Welcome.setFont(new Font("Lucida Grande", Font.BOLD, 22));
         add(Welcome);
 
         btnStartGame = new JButton("Start game");
-        btnStartGame.setBounds(61, 104, 113, 62);
+        btnStartGame.setBounds(81, 116, 113, 62);
         add(btnStartGame);
 
         btnHighscore = new JButton("Highscore");
-        btnHighscore.setBounds(116, 178, 113, 62);
+        btnHighscore.setBounds(170, 203, 113, 62);
         add(btnHighscore);
 
         btnLogOut = new JButton("Log Out");
-        btnLogOut.setBounds(250, 178, 113, 62);
+        btnLogOut.setBounds(349, 203, 113, 62);
         add(btnLogOut);
 
         btnCreateGame = new JButton("Create Game");
-        btnCreateGame.setBounds(193, 104, 113, 62);
+        btnCreateGame.setBounds(258, 116, 113, 62);
         add(btnCreateGame);
 
         btnDeleteGame = new JButton("Delete Game");
-        btnDeleteGame.setBounds(318, 104, 113, 62);
+        btnDeleteGame.setBounds(436, 116, 113, 62);
         add(btnDeleteGame);
 
         lblPleaseChooseAn = new JLabel("Please choose an option");
-        lblPleaseChooseAn.setBounds(173, 67, 152, 16);
+        lblPleaseChooseAn.setBounds(239, 67, 152, 16);
         add(lblPleaseChooseAn);
 
     }

@@ -1,23 +1,24 @@
 package SDK;
 
+import com.google.gson.Gson;
+
 /**
  * Created by Calvin on 29/10/2015.
  */
 public class Logic {
 
-    /*public static void login(String username, String password){
+    public static void login(String username, String password){
 
         ServerConnection serverConnection = new ServerConnection();
 
-        Login login = new Login();
-
         User user = new User();
-        user.setPassword(login.getTextFieldPassword());
-        user.setUsername(login.getTextFieldUserName());
+        user.setPassword(password);
+        user.setUsername(username);
 
         String json = new Gson().toJson(user);
 
         serverConnection.post(json, "login/");
+
 
 
     }
@@ -57,7 +58,7 @@ public class Logic {
 
 
 
-    }*/
+    }
 
 
 
