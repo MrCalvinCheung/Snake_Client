@@ -2,18 +2,20 @@ package SDK;
 
 import com.google.gson.Gson;
 
+import javax.swing.*;
+
 /**
  * Created by Calvin on 29/10/2015.
  */
 public class Logic {
 
-    public static void login(String username, String password){
+    public static void login(JTextField username, JTextField password){
 
         ServerConnection serverConnection = new ServerConnection();
 
         User user = new User();
-        user.setPassword(password);
-        user.setUsername(username);
+  /*      user.setPassword(password);
+        user.setUsername(username);*/
 
         String json = new Gson().toJson(user);
 

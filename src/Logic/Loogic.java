@@ -1,7 +1,9 @@
 package Logic;
 
-import SDK.Logic;
+import SDK.ServerConnection;
+import SDK.User;
 import UI.*;
+import com.google.gson.Gson;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,10 +21,7 @@ public class Loogic {
     private Highscore highscore;
 
 
-
     public Loogic() {
-
-
 
 
         screen = new Screen();
@@ -66,69 +65,68 @@ public class Loogic {
 
     }
 
-    public boolean Empty (String text) {
+    public static void login (String username, String password) {
 
-        if (text.equals("") || text.length()<1|| text == null) {
-            return true;
-        }
+        ServerConnection serverConnection = new ServerConnection();
 
-        else {
-            return false;
-        }
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+
+        String Json = new Gson().toJson(user);
+
+        serverConnection.post(Json,"login/") ;
 
     }
 
-
+    private boolean Empty(String text) {
+        if (text.equals("") || text.length() < 1 || text == null) {
+            return true;
+        } else
+            return false;
+    }
 
     private class UserActionListener implements ActionListener {
 
-        public void actionPerformed(ActionEvent e){
 
-            if (e.getSource() == screen.getlogin().getBtnLogin()) {
+        public void actionPerformed(ActionEvent e) {
+            String actCom = e.getActionCommand();
+            if (actCom.equals("Login")) {
 
-                Login login = new Login();
-                Logic logic = new Logic();
-                logic.login(login.getUsername(), login.getPassword());
+                String usernameField = screen.getlogin().getUsername().getText();
+                String passwordField = screen.getlogin().getPassword().getText();
+                screen.getlogin().getUsername().setText("");
+                screen.getlogin().getPassword().setText("");
 
+                if (Empty(usernameField) || Empty(passwordField)) {
+                    screen.getlogin().setLblErrorMessage("Please type in Username and Password");
+                } else {
+                    screen.show(Screen.UserMenu);
+                }
 
-                screen.show(screen.UserMenu);
+                } else if (e.getSource() == screen.getusermenu().getbtnDeleteGame()) {
+                    screen.show(screen.DeleteGame);
+                } else if (e.getSource() == screen.getdeletegame().getBtnMainMenu()) {
+                    screen.show(screen.UserMenu);
+                } else if (e.getSource() == screen.getusermenu().getBtnCreateGame()) {
+                    screen.show(screen.CreateGame);
+                } else if (e.getSource() == screen.getcreategame().getBtnMainMenu()) {
+                    screen.show(screen.UserMenu);
+                } else if (e.getSource() == screen.getusermenu().getBtnStartGame()) {
+                    screen.show(screen.StartGame);
+                } else if (e.getSource() == screen.getstartgame().getBtnMainMenu()) {
+                    screen.show(screen.UserMenu);
+                } else if (e.getSource() == screen.getstartgame().getBtnStartGame()) {
+                    screen.show(screen.GamePanel);
+                } else if (e.getSource() == screen.getusermenu().getBtnHighscore()) {
+                    screen.show(screen.Highscore);
+                } else if (e.getSource() == screen.gethighscore().getBtnMainMenu()) {
+                    screen.show(screen.UserMenu);
+                } else if (e.getSource() == screen.getusermenu().getBtnLogout()) {
+                    screen.show(screen.LOGIN);
+                }
 
-            }
-            else if (e.getSource() == screen.getusermenu().getbtnDeleteGame()){
-                screen.show(screen.DeleteGame);
-            }
-            else if (e.getSource() == screen.getdeletegame().getBtnMainMenu()){
-                screen.show(screen.UserMenu);
-            }
-
-            else if (e.getSource() == screen.getusermenu().getBtnCreateGame()){
-                screen.show(screen.CreateGame);
-            }
-            else if (e.getSource() == screen.getcreategame().getBtnMainMenu()){
-                screen.show(screen.UserMenu);
-            }
-            else if (e.getSource() == screen.getusermenu().getBtnStartGame()){
-                screen.show(screen.StartGame);
-            }
-            else if (e.getSource() == screen.getstartgame().getBtnMainMenu()){
-                screen.show(screen.UserMenu);
-            }
-            else if (e.getSource() == screen.getstartgame().getBtnStartGame()){
-                screen.show(screen.GamePanel);
-            }
-            else if (e.getSource() == screen.getusermenu().getBtnHighscore()){
-                screen.show(screen.Highscore);
-            }
-            else if (e.getSource() == screen.gethighscore().getBtnMainMenu()){
-                screen.show(screen.UserMenu);
-            }
-            else if (e.getSource() == screen.getusermenu().getBtnLogout()){
-                screen.show(screen.LOGIN);
             }
 
         }
-
     }
-}
-	
-

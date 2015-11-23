@@ -47,43 +47,34 @@ public class Login extends JPanel {
         add(Password);
 
         lblErrorMessage = new JLabel("");
-        lblErrorMessage.setBounds(120, 269, 245, 16);
+        lblErrorMessage.setForeground(Color.RED);
+        lblErrorMessage.setBounds(192, 223, 245, 16);
+        lblErrorMessage.setVisible(true);
         add(lblErrorMessage);
 
     }
 
-    public String getUsername() {
-        return Username.getText();
+    public JTextField getUsername() {
+        return Username;
     }
 
-    public String getPassword() {
-        String pw = new String(Password.getPassword());
-        return pw;
+    public JTextField getPassword() {
+        return Password;
     }
 
     public JButton getBtnLogin() {
         return btnLogin;
     }
 
-    public void showLblErrorMessage(boolean visible, String message) {
-        lblErrorMessage.setText(message);
-        lblErrorMessage.setVisible(visible);
-    }
+    public void setLblErrorMessage(String lblErrorMessage) {
+        this.lblErrorMessage.setText(lblErrorMessage);
 
-    public void showLblErrorMessage(boolean visible){
-        lblErrorMessage.setVisible(visible);
     }
 
     public void addActionListener(ActionListener l){
         btnLogin.addActionListener(l);
     }
-    public void Password(){
-        Password.setText("");
-    }
 
-    public void ClearTextField(){
-        Password.setText("");
-        Username.setText("");
-    }
+
 
 }

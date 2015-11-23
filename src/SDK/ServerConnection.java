@@ -11,7 +11,7 @@ public class ServerConnection {
 
     public ServerConnection(){
         this.hostAddress = "http://localhost";
-        this.port = 9998;
+        this.port = 8888;
     }
 
     private String hostAddress;
@@ -40,10 +40,10 @@ public class ServerConnection {
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").post(ClientResponse.class, json);
 
-      //  if (response.getStatus() != 200 && response.getStatus() != 201) {
-        //    throw new RuntimeException("Failed : HTTP error code : "
-        //            + response.getStatus());
-        //        }
+      if (response.getStatus() != 200 && response.getStatus() != 201) {
+           throw new RuntimeException("Failed : HTTP error code : "
+                    + response.getStatus());
+                }
 
         String output = response.getEntity(String.class);
 
