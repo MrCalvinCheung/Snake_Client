@@ -18,7 +18,6 @@ public class Config {
     private static String dbname;
     private static String hashingSalt;
     private static String encryptionkey;
-    private static String serverAdresseAllUsers;
 
     // Create init-method to read from the config.json.dist file
     // and parse it to the variables in the class.
@@ -51,7 +50,6 @@ public class Config {
             setPassword((String) jsonObject.get("password"));
             setEncryptionkey((String) jsonObject.get("encryptionkey"));
             setHashingSalt((String) jsonObject.get("hashingSalt"));
-            setServerAdresseAllUsers((String) jsonObject.get("serveradresseallusers"));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -111,11 +109,4 @@ public class Config {
         Config.hashingSalt = hashingSalt;
     }
 
-    public static String getServerAdresseAllUsers() {
-        return serverAdresseAllUsers;
-    }
-
-    public static void setServerAdresseAllUsers(String serverAdresseAllUsers) {
-        Config.serverAdresseAllUsers = serverAdresseAllUsers;
-    }
 }

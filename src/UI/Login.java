@@ -56,26 +56,18 @@ public class Login extends JPanel {
 
     public JTextField getUsername() {
 
-        String username = Username.getText();
-
         return Username;
     }
 
     public JTextField getPassword() {
 
-        String password = Password.getText();
-
         return Password;
     }
 
-    public JButton getBtnLogin() {
-        return btnLogin;
-    }
-
-    public void setLblErrorMessage(String lblErrorMessage) {
-        this.lblErrorMessage.setText(lblErrorMessage);
-
-    }
+    public void clearTextFields() {
+        Username.setText("");
+        Password.setText("");
+        }
 
     public void addActionListener(ActionListener l){
         btnLogin.addActionListener(l);

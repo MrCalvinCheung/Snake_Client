@@ -1,9 +1,10 @@
 package SDK;
 
-import UI.Screen;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import example.Config;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.util.ArrayList;
 
@@ -13,32 +14,56 @@ import java.util.ArrayList;
 public class Api {
 
     ServerConnection serverConnection = new ServerConnection();
-    private String username;
-    private String password;
-    private String message;
+
 
     public String login(User user) {
 
-        Screen screen = new Screen();
+        String message = "";
 
-        screen.getlogin().getUsername().getText();
-        screen.getlogin().getPassword().getText();
+        String data = serverConnection.post(new Gson().toJson(user), "login");
+        JSONParser parser = new JSONParser();
+        try {
+            Object object = parser.parse(data);
+            JSONObject jsonobject = (JSONObject) object;
 
-        user = new User();
+            message = (String)jsonobject.get("message");
 
-        user.setUsername(username);
-        user.setPassword(password);
+            if (jsonobject.get("userid") != null)
+            user.setId((int)(long) jsonobject.get("userid")); //Long tvinger JSON til int
 
-
-        return serverConnection.post(new Gson().toJson(user), "login");
-
+        } catch (ParseException e) {
+            message = "You didn't type anything";
+        }
+        return message;
     }
+
+
 
     public ArrayList <User> getUsers(){
 
-        String jsonOfUsers = serverConnection.get(Config.getServerAdresseAllUsers());
+        String jsonOfUsers = serverConnection.get("users");
 
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
+
+    }
+
+    public String createGame(Game game) {
+        String jsondata = serverConnection.post(new Gson().toJson(game),"games");
+
+        String message = "";
+
+        JSONParser parser = new JSONParser();
+        try {
+            Object object = parser.parse(jsondata);
+            JSONObject jsonobject = (JSONObject) object;
+
+            message = (String)jsonobject.get("message");
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return message;
+
 
     }
 

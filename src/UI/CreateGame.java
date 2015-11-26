@@ -1,14 +1,21 @@
 package UI;
 
+import SDK.User;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class CreateGame extends JPanel {
     private JTextField gameName;
+    private JTextField usercontrols;
     private JButton btnCreateGame;
     private JButton btnMainMenu;
+    private JComboBox usercombobox;
+
+
     /**
      * Create the panel.
      */
@@ -26,6 +33,31 @@ public class CreateGame extends JPanel {
         lblGameName.setHorizontalAlignment(SwingConstants.CENTER);
         lblGameName.setBounds(268, 78, 93, 22);
         add(lblGameName);
+
+        JLabel lblUsers = new JLabel("Select opponent");
+        lblUsers.setHorizontalAlignment(SwingConstants.CENTER);
+        lblUsers.setBounds(489, 81, 106, 16);
+        add(lblUsers);
+
+        JLabel lblusercontrols = new JLabel("Type in your moves");
+        lblusercontrols.setHorizontalAlignment(SwingConstants.CENTER);
+        lblusercontrols.setBounds(243, 233, 129, 16);
+        add(lblusercontrols);
+
+        JLabel lblUsewA = new JLabel("Use \"W, A, S, D\"");
+        lblUsewA.setHorizontalAlignment(SwingConstants.CENTER);
+        lblUsewA.setBounds(91, 267, 118, 16);
+        add(lblUsewA);
+
+        usercontrols = new JTextField();
+        usercontrols.setBounds(243, 273, 151, 28);
+        add(usercontrols);
+        usercontrols.setColumns(10);
+
+        usercombobox = new JComboBox();
+        usercombobox.setBounds(436, 109, 159, 27);
+        add(usercombobox);
+
 
         gameName = new JTextField();
         gameName.setBounds(239, 106, 151, 28);
@@ -58,11 +90,22 @@ public class CreateGame extends JPanel {
         return gameName.getText();
     }
 
+    public String getuserControls() {
+        return usercontrols.getText();
+    }
 
-    //public void actionPerformedDeleteGame (ActionListener l) {
+    public void setUsers(ArrayList<User>users){
+        for (User u: users) {
+            usercombobox.addItem(u.getUsername());
+        }
+    }
 
-    //btnDeleteGame.addActionListener(l);
-    //btnMainMenu.addActionListener(l);
+    public String getUsername(){
+
+        return (String) usercombobox.getSelectedItem();
+
+    }
+
 
     public void addActionListener(ActionListener l) {
 

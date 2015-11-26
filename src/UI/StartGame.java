@@ -45,11 +45,6 @@ public class StartGame extends JPanel {
     }
 
 
-    //public void actionPerformedDeleteGame (ActionListener l) {
-
-    //btnDeleteGame.addActionListener(l);
-    //btnMainMenu.addActionListener(l);
-
     public void addActionListener(ActionListener l) {
 
         btnStartGame.addActionListener(l);
