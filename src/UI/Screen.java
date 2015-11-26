@@ -93,6 +93,7 @@ public class Screen extends JFrame {
         return highscore;
     }
 
+
     public void show(String card) {
 
         c.show(this.getContentPane(), card);

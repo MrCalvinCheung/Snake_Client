@@ -1,5 +1,6 @@
 package SDK;
 
+import UI.Screen;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import example.Config;
@@ -12,8 +13,22 @@ import java.util.ArrayList;
 public class Api {
 
     ServerConnection serverConnection = new ServerConnection();
+    private String username;
+    private String password;
+    private String message;
 
     public String login(User user) {
+
+        Screen screen = new Screen();
+
+        screen.getlogin().getUsername().getText();
+        screen.getlogin().getPassword().getText();
+
+        user = new User();
+
+        user.setUsername(username);
+        user.setPassword(password);
+
 
         return serverConnection.post(new Gson().toJson(user), "login");
 

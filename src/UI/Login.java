@@ -55,10 +55,16 @@ public class Login extends JPanel {
     }
 
     public JTextField getUsername() {
+
+        String username = Username.getText();
+
         return Username;
     }
 
     public JTextField getPassword() {
+
+        String password = Password.getText();
+
         return Password;
     }
 

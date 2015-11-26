@@ -1,8 +1,9 @@
 package Logic;
 
+import SDK.Game;
 import SDK.ServerConnection;
 import SDK.User;
-import UI.*;
+import UI.Screen;
 import com.google.gson.Gson;
 
 import java.awt.event.ActionEvent;
@@ -10,40 +11,20 @@ import java.awt.event.ActionListener;
 
 
 
-public class Loogic {
+public class Logic {
 
     private Screen screen;
-    private UserMenu usermenu;
-    private DeleteGame deletegame;
-    private CreateGame creategame;
-    private StartGame startgame;
-    private GamePanel gamepanel;
-    private Highscore highscore;
+    private String username;
+    private String password;
+    private String message;
 
 
-    public Loogic() {
+    public Logic() {
 
 
         screen = new Screen();
         screen.setVisible(true);
 
-        usermenu = new UserMenu();
-        usermenu.setVisible(true);
-
-        deletegame = new DeleteGame();
-        deletegame.setVisible(true);
-
-        creategame = new CreateGame();
-        creategame.setVisible(true);
-
-        startgame = new StartGame();
-        startgame.setVisible(true);
-
-        gamepanel = new GamePanel();
-        gamepanel.setVisible(true);
-
-        highscore = new Highscore();
-        highscore.setVisible(true);
 
     }
 
@@ -65,9 +46,15 @@ public class Loogic {
 
     }
 
-    public static void login (String username, String password) {
 
-        ServerConnection serverConnection = new ServerConnection();
+
+    /*public String Login (Screen screen) {
+
+
+        screen.getlogin().getUsername().getText();
+        screen.getlogin().getPassword().getText();
+
+        ServerConnection sc = new ServerConnection();
 
         User user = new User();
         user.setUsername(username);
@@ -75,9 +62,10 @@ public class Loogic {
 
         String Json = new Gson().toJson(user);
 
-        serverConnection.post(Json,"login/") ;
+        sc.post(Json,"login/") ;
 
-    }
+        return message;
+    }*/
 
     private boolean Empty(String text) {
         if (text.equals("") || text.length() < 1 || text == null) {
@@ -85,6 +73,7 @@ public class Loogic {
         } else
             return false;
     }
+
 
     private class UserActionListener implements ActionListener {
 
@@ -129,4 +118,50 @@ public class Loogic {
             }
 
         }
+
+
+    public static void createUser(User user) {
+
     }
+
+    public static void deleteUser(int userId) {
+
+    }
+
+    public static void getUser(int userId) {
+
+    }
+
+    public static void getGame(int gameId) {
+
+    }
+
+    public static void joinGame(int gameId, User opponent, String controls) {
+
+    }
+
+    public static void startGame(int gameId) {
+
+    }
+
+    public static void createGame(String name, int status) {
+
+        ServerConnection serverConnection = new ServerConnection();
+
+        Game game = new Game();
+        game.setName(name);
+        //game.setHost();
+        game.setStatus(status);
+
+        String json = new Gson().toJson(game);
+
+        serverConnection.post(json, "create");
+
+    }
+
+    public static void deleteGame(int gameId) {
+
+
+    }
+
+}
