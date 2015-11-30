@@ -23,7 +23,6 @@ public class Screen extends JFrame {
     private DeleteGame deletegame;
     private CreateGame creategame;
     private StartGame startgame;
-    private GamePanel gamepanel;
     private Highscore highscore;
 
 
@@ -54,9 +53,6 @@ public class Screen extends JFrame {
         startgame = new StartGame();
         contentPane.add(startgame, StartGame);
 
-        gamepanel = new GamePanel();
-        contentPane.add(gamepanel, GamePanel);
-
         highscore = new Highscore();
         contentPane.add(highscore, Highscore);
 
@@ -83,10 +79,6 @@ public class Screen extends JFrame {
 
     public StartGame getstartgame(){
         return startgame;
-    }
-
-    public GamePanel getgamepanel(){
-        return gamepanel;
     }
 
     public Highscore gethighscore(){

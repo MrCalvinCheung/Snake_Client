@@ -9,7 +9,7 @@ import UI.Screen;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.ArrayList;
 
 
 public class Logic {
@@ -17,6 +17,7 @@ public class Logic {
     private Screen screen;
     private User currentUser;
     private Api api;
+    private ArrayList<Game> games;
 
     public Logic() {
 
@@ -36,14 +37,12 @@ public class Logic {
 
         screen.getcreategame().addActionListener(new CreateGameActionListener());
 
-        screen.getdeletegame().addActionListener(new UserActionListener());
+        screen.getdeletegame().addActionListener(new DeleteGameActionListener());
 
-        screen.getstartgame().addActionListener(new UserActionListener());
+        screen.getstartgame().addActionListener(new StartGameActionListener());
 
-        screen.gethighscore().ActionListener(new UserActionListener());
+        screen.gethighscore().ActionListener(new HighscoreActionListener());
 
-        //screen.getgamepanel().addActionListener(new UserActionListener());
-        //screen.show(screen.GamePanel);
 
     }
 
@@ -80,6 +79,12 @@ public class Logic {
                 screen.show(screen.CreateGame);
             } else if (e.getSource() == screen.getusermenu().getBtnStartGame()) {
                 screen.show(screen.StartGame);
+
+                games = api.getGames(currentUser.getId());
+                for (Game g : games)
+                g.getGameId();
+                screen.getstartgame().setGames(games);
+
             } else if (e.getSource() == screen.getusermenu().getBtnHighscore()) {
                 screen.show(screen.Highscore);
             } else if (e.getSource() == screen.getusermenu().getBtnLogout()) {
@@ -97,10 +102,7 @@ public class Logic {
             if (e.getSource() == screen.getcreategame().getBtnMainMenu()) {
                 screen.show(screen.UserMenu);
 
-
-
-            }
-            else if (e.getSource() == screen.getcreategame().getBtnCreateGame()){
+            } else if (e.getSource() == screen.getcreategame().getBtnCreateGame()) {
                 Game game = new Game();
                 Gamer host = new Gamer();
                 Gamer opponent = new Gamer();
@@ -112,9 +114,9 @@ public class Logic {
                 host.setId(currentUser.getId());
                 game.setName(screen.getcreategame().getgameName());
 
-                for (User u : api.getUsers()){
+                for (User u : api.getUsers()) {
 
-                    if (u.getUsername().equals(screen.getcreategame().getUsername())){
+                    if (u.getUsername().equals(screen.getcreategame().getUsername())) {
                         opponent.setId(u.getId());
                         System.out.println(u.getId());
                     }
@@ -128,29 +130,56 @@ public class Logic {
         }
     }
 
-    private class UserActionListener implements ActionListener {
+    private class DeleteGameActionListener implements ActionListener {
 
-
+        @Override
         public void actionPerformed(ActionEvent e) {
-
-
             if (e.getSource() == screen.getdeletegame().getBtnMainMenu()) {
                 screen.show(screen.UserMenu);
+            }
+        }
+    }
+
+
+    private class StartGameActionListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == screen.getstartgame().getBtnStartGame()) {
+                screen.show(screen.UserMenu);
+
+                Game startGame = null;
+
+                for (Game g : games)
+                {
+                    if (screen.getstartgame().getPendingGames().equals(g.getName())) {
+                        startGame = g;
+                    }
+                }
+                api.joinGame(startGame);
+                api.startGame(startGame);
+                JOptionPane.showMessageDialog(screen, "The winner is: "+startGame.getWinner().getUsername());
 
             } else if (e.getSource() == screen.getstartgame().getBtnMainMenu()) {
                 screen.show(screen.UserMenu);
-            } else if (e.getSource() == screen.getstartgame().getBtnStartGame()) {
-                screen.show(screen.GamePanel);
+            }
+        }
+    }
 
-            } else if (e.getSource() == screen.gethighscore().getBtnMainMenu()) {
+
+    private class HighscoreActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+
+            if (e.getSource() == screen.gethighscore().getBtnMainMenu()) {
                 screen.show(screen.UserMenu);
 
             }
-
-
         }
     }
 }
+
 
 
 

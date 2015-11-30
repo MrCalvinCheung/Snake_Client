@@ -29,7 +29,7 @@ public class Api {
             message = (String)jsonobject.get("message");
 
             if (jsonobject.get("userid") != null)
-            user.setId((int)(long) jsonobject.get("userid")); //Long tvinger JSON til int
+                user.setId((int)(long) jsonobject.get("userid")); //Long tvinger JSON til int
 
         } catch (ParseException e) {
             message = "You didn't type anything";
@@ -45,6 +45,57 @@ public class Api {
 
         return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
 
+    }
+
+    public ArrayList <Game> getGames(int userid){
+
+        String jsonofgames = serverConnection.get("games/pending/"+ userid);
+
+        return new Gson().fromJson(jsonofgames, new TypeToken<ArrayList<Game>>(){}.getType());
+
+    }
+
+    public String joinGame(Game game) {
+        String jsondata = serverConnection.put("games/join",new Gson().toJson(game));
+
+        String message = "";
+
+        JSONParser parser = new JSONParser();
+        try {
+            Object object = parser.parse(jsondata);
+            JSONObject jsonobject = (JSONObject) object;
+
+            message = (String) jsonobject.get("message");
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return message;
+
+    }
+
+    public String startGame (Game game) {
+        String jsondata = serverConnection.put("games/start",new Gson().toJson(game));
+
+        String message = "";
+
+        JSONParser parser = new JSONParser();
+        try {
+            Object object = parser.parse(jsondata);
+            JSONObject jsonobject = (JSONObject) object;
+
+            if (jsonobject.get("message") !=null)
+
+                message = (String) jsonobject.get("message");
+            else {
+                Game temp = new Gson().fromJson(jsondata, Game.class);
+                game.setWinner(temp.getWinner());
+
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return message;
     }
 
     public String createGame(Game game) {

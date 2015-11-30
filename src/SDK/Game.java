@@ -2,10 +2,6 @@ package SDK;
 
 import java.sql.Date;
 
-/**
- * Created by Peter on 12-10-2015.
- */
-
 public class Game {
     //Creating the variables needed for the game
     private int gameId;
