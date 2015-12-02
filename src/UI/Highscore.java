@@ -44,4 +44,5 @@ public class Highscore extends JPanel {
     }
 
 
+
 }

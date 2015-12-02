@@ -87,10 +87,9 @@ public class Api {
 
     }
 
-    public ArrayList<Game> getHighscore (String username, int userid) {
-        String jsondata = serverConnection.get("scores/" +userid + username);
-
-        return new Gson().fromJson(jsondata, new TypeToken<ArrayList<Game>>(){}.getType());
+    public ArrayList<Score> getHighscore () {
+        String jsondata = serverConnection.get("highscores/");
+        return new Gson().fromJson(jsondata, new TypeToken<ArrayList<Score>>(){}.getType());
     }
 
     public String parseMessage(String message) {

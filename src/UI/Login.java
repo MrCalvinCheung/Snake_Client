@@ -1,4 +1,5 @@
 package UI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -24,11 +25,13 @@ public class Login extends JPanel {
 
         JLabel lblUsername = new JLabel("Username");
         lblUsername.setHorizontalAlignment(SwingConstants.CENTER);
+        lblUsername.setFont(new Font("Lucida Grande", Font.BOLD,13));
         lblUsername.setBounds(269, 91, 91, 16);
         add(lblUsername);
 
         JLabel lblPassword = new JLabel("Password");
         lblPassword.setHorizontalAlignment(SwingConstants.CENTER);
+        lblPassword.setFont(new Font("Lucida Grande",Font.BOLD,13));
         lblPassword.setBounds(269, 159, 91, 16);
         add(lblPassword);
 
@@ -79,4 +82,7 @@ public class Login extends JPanel {
 
 
 
+
+
 }
+
