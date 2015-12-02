@@ -95,6 +95,7 @@ public class CreateGame extends JPanel {
     }
 
     public void setUsers(ArrayList<User>users){
+        usercombobox.removeAllItems();
         for (User u: users) {
             usercombobox.addItem(u.getUsername());
         }

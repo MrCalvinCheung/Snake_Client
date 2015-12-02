@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public class Api {
 
-    ServerConnection serverConnection = new ServerConnection();
+    ServerConnection serverConnection = new ServerConnection(); //Object af ServerConnection oprettes
 
 
-    public String login(User user) {
+    public String login(User user) { //når du kalder metoden, så skal den 'fodres' med et user objekt
 
         String message = "";
 

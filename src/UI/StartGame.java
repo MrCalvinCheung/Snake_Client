@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class StartGame extends JPanel {
     private JButton btnStartGame;
     private JButton btnMainMenu;
-    private JTextField textfield;
+    private JTextField opponentControls;
     private JComboBox comboBoxPending;
 
     /**
@@ -43,10 +43,10 @@ public class StartGame extends JPanel {
         lblNewLabel_1.setBounds(421, 69, 61, 16);
         add(lblNewLabel_1);
 
-        textfield = new JTextField();
-        textfield.setBounds(232, 261, 151, 28);
-        add(textfield);
-        textfield.setColumns(10);
+        opponentControls = new JTextField();
+        opponentControls.setBounds(232, 261, 151, 28);
+        add(opponentControls);
+        opponentControls.setColumns(10);
 
         JLabel lblUsewA = new JLabel("Use \"W, A, S, D\"");
         lblUsewA.setHorizontalAlignment(SwingConstants.CENTER);
@@ -59,7 +59,12 @@ public class StartGame extends JPanel {
         add(lblNewLabel_2);
     }
 
+    public String getopponentControls() {
+        return opponentControls.getText();
+    }
+
     public void setGames(ArrayList<Game> games) {
+        comboBoxPending.removeAllItems();
         for (Game g : games) {
             comboBoxPending.addItem(g.getName());
         }

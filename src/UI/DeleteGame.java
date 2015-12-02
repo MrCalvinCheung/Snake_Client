@@ -1,12 +1,16 @@
 package UI;
 
+import SDK.Game;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class DeleteGame extends JPanel {
 
     private JButton btnDeleteGame;
     private JButton btnMainMenu;
+    private JComboBox DeleteGameComboBox;
 
     /**
      * Create the panel.
@@ -23,15 +27,27 @@ public class DeleteGame extends JPanel {
         btnMainMenu.setBounds(24, 97, 156, 45);
         add(btnMainMenu);
 
-        JComboBox DeleteGameComboBox = new JComboBox();
+        DeleteGameComboBox = new JComboBox();
         DeleteGameComboBox.setBounds(237, 32, 156, 45);
         add(DeleteGameComboBox);
 
     }
 
+    public void setDeleteGames(ArrayList<Game> games) {
+        DeleteGameComboBox.removeAllItems();
+        for (Game g : games) {
+            DeleteGameComboBox.addItem(g.getName());
+        }
+    }
+
+    public String getDeleteComboBox() {
+        return (String) DeleteGameComboBox.getSelectedItem();
+    }
+
     public JButton getBtnDeleteGame() {
         return btnDeleteGame;
     }
+
     public JButton getBtnMainMenu() {
         return btnMainMenu;
     }

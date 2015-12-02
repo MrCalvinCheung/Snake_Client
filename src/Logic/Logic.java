@@ -156,8 +156,17 @@ public class Logic {
                         startGame = g;
                     }
                 }
+                startGame.getOpponent().setControls(screen.getstartgame().getopponentControls());
+
                 api.joinGame(startGame);
                 api.startGame(startGame);
+                for (User u : api.getUsers())
+                {
+                    if(u.getId()==startGame.getWinner().getId())
+                    {
+                        startGame.getWinner().setUsername(u.getUsername()); //Set når man giver den en "værdi" og get når man henter noget fra objekt.
+                    }
+                }
                 JOptionPane.showMessageDialog(screen, "The winner is: "+startGame.getWinner().getUsername());
 
             } else if (e.getSource() == screen.getstartgame().getBtnMainMenu()) {
