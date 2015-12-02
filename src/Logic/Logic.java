@@ -18,6 +18,8 @@ public class Logic {
     private User currentUser;
     private Api api;
     private ArrayList<Game> games;
+    private ArrayList<Game> gamestodelete;
+
 
     public Logic() {
 
@@ -64,6 +66,7 @@ public class Logic {
                 screen.getlogin().clearTextFields();
             }
 
+
         }
     }
 
@@ -75,6 +78,8 @@ public class Logic {
 
             if (e.getSource() == screen.getusermenu().getbtnDeleteGame()) {
                 screen.show(screen.DeleteGame);
+                gamestodelete = api.getGamesToDelete(currentUser.getId());
+                screen.getdeletegame().setDeleteGames(gamestodelete);
             } else if (e.getSource() == screen.getusermenu().getBtnCreateGame()) {
                 screen.show(screen.CreateGame);
             } else if (e.getSource() == screen.getusermenu().getBtnStartGame()) {
@@ -137,6 +142,22 @@ public class Logic {
             if (e.getSource() == screen.getdeletegame().getBtnMainMenu()) {
                 screen.show(screen.UserMenu);
             }
+
+                else if (e.getSource()== screen.getdeletegame().getBtnDeleteGame()){
+                Game game = new Game();
+                for(Game g : gamestodelete){
+                    if (g.getName().equals(screen.getdeletegame().getDeleteComboBox())){
+                        game = g;
+                    }
+                }
+                String message = api.DeleteGame(game.getGameId());
+                JOptionPane.showMessageDialog(screen,message);
+                if(message.equals("Game was deleted")){
+                    screen.getdeletegame().removeGame();
+
+                }
+            }
+
         }
     }
 

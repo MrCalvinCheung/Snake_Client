@@ -44,10 +44,12 @@ public class CreateGame extends JPanel {
         lblusercontrols.setBounds(243, 233, 129, 16);
         add(lblusercontrols);
 
-        JLabel lblUsewA = new JLabel("Use \"W, A, S, D\"");
-        lblUsewA.setHorizontalAlignment(SwingConstants.CENTER);
-        lblUsewA.setBounds(91, 267, 118, 16);
-        add(lblUsewA);
+        JLabel lblcontrols = new JLabel();
+        lblcontrols.setIcon(new ImageIcon(CreateGame.class.getResource("/res/control-1.png")));
+        lblcontrols.setHorizontalAlignment(SwingConstants.CENTER);
+        lblcontrols.setBounds(59, 234, 129, 86);
+        add(lblcontrols);
+
 
         usercontrols = new JTextField();
         usercontrols.setBounds(243, 273, 151, 28);

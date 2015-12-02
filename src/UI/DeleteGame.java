@@ -28,7 +28,7 @@ public class DeleteGame extends JPanel {
         add(btnMainMenu);
 
         DeleteGameComboBox = new JComboBox();
-        DeleteGameComboBox.setBounds(237, 32, 156, 45);
+        DeleteGameComboBox.setBounds(237, 32, 238, 45);
         add(DeleteGameComboBox);
 
     }
@@ -59,4 +59,7 @@ public class DeleteGame extends JPanel {
         btnMainMenu.addActionListener(l);
     }
 
+    public void removeGame() {
+        DeleteGameComboBox.removeItemAt(DeleteGameComboBox.getSelectedIndex());
+    }
 }

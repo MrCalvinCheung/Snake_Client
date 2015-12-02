@@ -48,15 +48,16 @@ public class StartGame extends JPanel {
         add(opponentControls);
         opponentControls.setColumns(10);
 
-        JLabel lblUsewA = new JLabel("Use \"W, A, S, D\"");
-        lblUsewA.setHorizontalAlignment(SwingConstants.CENTER);
-        lblUsewA.setBounds(91, 267, 118, 16);
-        add(lblUsewA);
+        JLabel lblcontrols = new JLabel();
+        lblcontrols.setIcon(new ImageIcon(CreateGame.class.getResource("/res/control-1.png")));
+        lblcontrols.setHorizontalAlignment(SwingConstants.CENTER);
+        lblcontrols.setBounds(64, 222, 129, 86);
+        add(lblcontrols);
 
-        JLabel lblNewLabel_2 = new JLabel("Type in your moves");
-        lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_2.setBounds(232, 233, 151, 16);
-        add(lblNewLabel_2);
+        JLabel lblusercontrols = new JLabel("Type in your moves");
+        lblusercontrols.setHorizontalAlignment(SwingConstants.CENTER);
+        lblusercontrols.setBounds(232, 233, 151, 16);
+        add(lblusercontrols);
     }
 
     public String getopponentControls() {

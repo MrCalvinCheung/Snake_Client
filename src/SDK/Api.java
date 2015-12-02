@@ -13,6 +13,8 @@ import java.util.ArrayList;
  */
 public class Api {
 
+
+
     ServerConnection serverConnection = new ServerConnection(); //Object af ServerConnection oprettes
 
 
@@ -41,28 +43,60 @@ public class Api {
 
     public ArrayList <User> getUsers(){
 
-        String jsonOfUsers = serverConnection.get("users");
+        String jsondata = serverConnection.get("users");
 
-        return new Gson().fromJson(jsonOfUsers, new TypeToken<ArrayList<User>>(){}.getType());
+        return new Gson().fromJson(jsondata, new TypeToken<ArrayList<User>>(){}.getType());
 
     }
 
     public ArrayList <Game> getGames(int userid){
 
-        String jsonofgames = serverConnection.get("games/pending/"+ userid);
-
-        return new Gson().fromJson(jsonofgames, new TypeToken<ArrayList<Game>>(){}.getType());
+        String jsondata = serverConnection.get("games/pending/"+ userid);
+        return new Gson().fromJson(jsondata, new TypeToken<ArrayList<Game>>(){}.getType());
 
     }
 
     public String joinGame(Game game) {
         String jsondata = serverConnection.put("games/join",new Gson().toJson(game));
+        return parseMessage(jsondata);
 
-        String message = "";
+    }
 
+    public String DeleteGame (int gameID) { //Sender et GAME ID(TAL) tilbage til serveren
+        String jsondata = serverConnection.delete("games/"+gameID);
+        return parseMessage(jsondata);
+
+    }
+
+    public ArrayList <Game> getGamesToDelete(int userid){
+
+        String jsondata = serverConnection.get("games/host/"+ userid);
+
+        return new Gson().fromJson(jsondata, new TypeToken<ArrayList<Game>>(){}.getType());
+        }
+
+    public String startGame (Game game) {
+        String jsondata = serverConnection.put("games/start",new Gson().toJson(game));
+        return parseMessage(jsondata);
+    }
+
+    public String createGame(Game game) {
+        String jsondata = serverConnection.post(new Gson().toJson(game),"games");
+        return parseMessage(jsondata);
+
+
+    }
+
+    public ArrayList<Game> getHighscore (String username, int userid) {
+        String jsondata = serverConnection.get("scores/" +userid + username);
+
+        return new Gson().fromJson(jsondata, new TypeToken<ArrayList<Game>>(){}.getType());
+    }
+
+    public String parseMessage(String message) {
         JSONParser parser = new JSONParser();
         try {
-            Object object = parser.parse(jsondata);
+            Object object = parser.parse(message);
             JSONObject jsonobject = (JSONObject) object;
 
             message = (String) jsonobject.get("message");
@@ -71,56 +105,6 @@ public class Api {
             e.printStackTrace();
         }
         return message;
-
     }
-
-    public String startGame (Game game) {
-        String jsondata = serverConnection.put("games/start",new Gson().toJson(game));
-
-        String message = "";
-
-        JSONParser parser = new JSONParser();
-        try {
-            Object object = parser.parse(jsondata);
-            JSONObject jsonobject = (JSONObject) object;
-
-            if (jsonobject.get("message") !=null)
-
-                message = (String) jsonobject.get("message");
-            else {
-                Game temp = new Gson().fromJson(jsondata, Game.class);
-                game.setWinner(temp.getWinner());
-
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return message;
-    }
-
-    public String createGame(Game game) {
-        String jsondata = serverConnection.post(new Gson().toJson(game),"games");
-
-        String message = "";
-
-        JSONParser parser = new JSONParser();
-        try {
-            Object object = parser.parse(jsondata);
-            JSONObject jsonobject = (JSONObject) object;
-
-            message = (String)jsonobject.get("message");
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return message;
-
-
-    }
-
-    // public DeleteGame(Game gameid) {
-
-    //     return serverConnection.post(new Gson().fromJson(gameid), "games");
-    // }
 
 }
