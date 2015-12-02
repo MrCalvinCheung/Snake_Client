@@ -84,7 +84,6 @@ public class Api {
         String jsondata = serverConnection.post(new Gson().toJson(game),"games");
         return parseMessage(jsondata);
 
-
     }
 
     public ArrayList<Score> getHighscore () {

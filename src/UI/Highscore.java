@@ -1,8 +1,11 @@
 package UI;
 
+import SDK.Score;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Highscore extends JPanel {
     private JTable table;
@@ -22,8 +25,9 @@ public class Highscore extends JPanel {
         add(lblNewLabel);
 
         table = new JTable();
-        table.setBounds(131, 66, 367, 215);
-        add(table);
+        JScrollPane scrollpane = new JScrollPane(table);
+        scrollpane.setBounds(131, 66, 367, 215);
+        add(scrollpane);
 
         btnMainMenu = new JButton("Main Menu");
         btnMainMenu.setBounds(246, 293, 138, 50);
@@ -39,6 +43,11 @@ public class Highscore extends JPanel {
         return btnMainMenu;
     }
 
+    public void setTableModel(ArrayList<Score> scores) {
+        HighscoreTableModel tableModel = new HighscoreTableModel(scores);
+        table.setModel(tableModel);
+
+    }
     public void ActionListener(ActionListener l){
         btnMainMenu.addActionListener(l);
     }

@@ -92,6 +92,7 @@ public class Logic {
 
             } else if (e.getSource() == screen.getusermenu().getBtnHighscore()) {
                 screen.show(screen.Highscore);
+                screen.gethighscore().setTableModel(api.getHighscore());
             } else if (e.getSource() == screen.getusermenu().getBtnLogout()) {
                 screen.show(screen.LOGIN);
                 currentUser = new User();
