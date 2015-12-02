@@ -29,6 +29,10 @@ public class Highscore extends JPanel {
         btnMainMenu.setBounds(246, 293, 138, 50);
         add(btnMainMenu);
 
+        JLabel Background = new JLabel("");
+        Background.setIcon(new ImageIcon(Login.class.getResource("/res/Snake_Background.png")));
+        Background.setBounds(0, 0, 630, 388);
+        add(Background);
     }
 
     public JButton getBtnMainMenu(){

@@ -3,7 +3,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-
 public class Login extends JPanel {
     private JTextField Username;
     private JPasswordField Password;
@@ -39,6 +38,7 @@ public class Login extends JPanel {
         Username.setColumns(10);
 
         btnLogin = new JButton("Login");
+        btnLogin.setForeground(new Color(0, 128, 0));
         btnLogin.setBounds(240, 263, 149, 52);
         add(btnLogin);
 
@@ -52,6 +52,10 @@ public class Login extends JPanel {
         lblErrorMessage.setVisible(true);
         add(lblErrorMessage);
 
+        JLabel Background = new JLabel("");
+        Background.setIcon(new ImageIcon(Login.class.getResource("/res/Snake_Background.png")));
+        Background.setBounds(0, 0, 630, 388);
+        add(Background);
     }
 
     public JTextField getUsername() {

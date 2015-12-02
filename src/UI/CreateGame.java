@@ -24,6 +24,7 @@ public class CreateGame extends JPanel {
         setBounds(100, 100, 630, 388);
 
         JLabel lblCreateGame = new JLabel("Create Game");
+        lblCreateGame.setForeground(new Color(0, 128, 0));
         lblCreateGame.setFont(new Font("Lucida Grande", Font.BOLD, 16));
         lblCreateGame.setHorizontalAlignment(SwingConstants.CENTER);
         lblCreateGame.setBounds(235, 27, 159, 50);
@@ -36,23 +37,23 @@ public class CreateGame extends JPanel {
 
         JLabel lblUsers = new JLabel("Select opponent");
         lblUsers.setHorizontalAlignment(SwingConstants.CENTER);
-        lblUsers.setBounds(489, 81, 106, 16);
+        lblUsers.setBounds(436, 81, 151, 16);
         add(lblUsers);
 
         JLabel lblusercontrols = new JLabel("Type in your moves");
         lblusercontrols.setHorizontalAlignment(SwingConstants.CENTER);
-        lblusercontrols.setBounds(243, 233, 129, 16);
+        lblusercontrols.setBounds(436, 181, 151, 16);
         add(lblusercontrols);
 
         JLabel lblcontrols = new JLabel();
         lblcontrols.setIcon(new ImageIcon(CreateGame.class.getResource("/res/control-1.png")));
         lblcontrols.setHorizontalAlignment(SwingConstants.CENTER);
-        lblcontrols.setBounds(59, 234, 129, 86);
+        lblcontrols.setBounds(261, 166, 129, 86);
         add(lblcontrols);
 
 
         usercontrols = new JTextField();
-        usercontrols.setBounds(243, 273, 151, 28);
+        usercontrols.setBounds(436, 209, 151, 28);
         add(usercontrols);
         usercontrols.setColumns(10);
 
@@ -78,6 +79,10 @@ public class CreateGame extends JPanel {
         btnMainMenu.setBounds(50, 115, 138, 50);
         add(btnMainMenu);
 
+        JLabel Background = new JLabel("");
+        Background.setIcon(new ImageIcon(Login.class.getResource("/res/Snake_Background.png")));
+        Background.setBounds(0, 0, 630, 388);
+        add(Background);
     }
 
     public JButton getBtnCreateGame() {

@@ -27,11 +27,12 @@ public class StartGame extends JPanel {
         add(lblNewLabel);
 
         btnStartGame = new JButton("Start Game");
-        btnStartGame.setBounds(19, 70, 137, 54);
+        btnStartGame.setForeground(new Color(0, 128, 0));
+        btnStartGame.setBounds(54, 69, 137, 54);
         add(btnStartGame);
 
         btnMainMenu = new JButton("Main Menu");
-        btnMainMenu.setBounds(18, 136, 138, 50);
+        btnMainMenu.setBounds(53, 137, 138, 50);
         add(btnMainMenu);
 
         comboBoxPending = new JComboBox();
@@ -40,24 +41,29 @@ public class StartGame extends JPanel {
 
         JLabel lblNewLabel_1 = new JLabel("Pending");
         lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_1.setBounds(421, 69, 61, 16);
+        lblNewLabel_1.setBounds(334, 69, 231, 16);
         add(lblNewLabel_1);
 
         opponentControls = new JTextField();
-        opponentControls.setBounds(232, 261, 151, 28);
+        opponentControls.setBounds(334, 213, 231, 28);
         add(opponentControls);
         opponentControls.setColumns(10);
 
         JLabel lblcontrols = new JLabel();
         lblcontrols.setIcon(new ImageIcon(CreateGame.class.getResource("/res/control-1.png")));
         lblcontrols.setHorizontalAlignment(SwingConstants.CENTER);
-        lblcontrols.setBounds(64, 222, 129, 86);
+        lblcontrols.setBounds(193, 172, 129, 86);
         add(lblcontrols);
 
         JLabel lblusercontrols = new JLabel("Type in your moves");
         lblusercontrols.setHorizontalAlignment(SwingConstants.CENTER);
-        lblusercontrols.setBounds(232, 233, 151, 16);
+        lblusercontrols.setBounds(334, 185, 231, 16);
         add(lblusercontrols);
+
+        JLabel Background = new JLabel("");
+        Background.setIcon(new ImageIcon(Login.class.getResource("/res/Snake_Background.png")));
+        Background.setBounds(0, 0, 630, 388);
+        add(Background);
     }
 
     public String getopponentControls() {

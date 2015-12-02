@@ -31,6 +31,10 @@ public class DeleteGame extends JPanel {
         DeleteGameComboBox.setBounds(237, 32, 238, 45);
         add(DeleteGameComboBox);
 
+        JLabel Background = new JLabel("");
+        Background.setIcon(new ImageIcon(Login.class.getResource("/res/Snake_Background.png")));
+        Background.setBounds(0, 0, 630, 388);
+        add(Background);
     }
 
     public void setDeleteGames(ArrayList<Game> games) {

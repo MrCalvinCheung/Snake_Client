@@ -50,6 +50,11 @@ public class UserMenu extends JPanel {
         lblPleaseChooseAn.setBounds(239, 67, 152, 16);
         add(lblPleaseChooseAn);
 
+        JLabel Background = new JLabel("");
+        Background.setIcon(new ImageIcon(Login.class.getResource("/res/Snake_Background.png")));
+        Background.setBounds(0, 0, 630, 388);
+        add(Background);
+
     }
 
     public JButton getBtnStartGame(){

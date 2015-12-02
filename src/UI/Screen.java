@@ -11,7 +11,6 @@ public class Screen extends JFrame {
     public static final String DeleteGame = "DeleteGame123";
     public static final String CreateGame = "CreateGame123";
     public static final String StartGame = "StartGame123";
-    public static final String GamePanel = "GamePanel123";
     public static final String Highscore = "Highscore123";
 
 
@@ -33,7 +32,7 @@ public class Screen extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 630, 388);
         contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
         contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
         contentPane.setLayout(new CardLayout(0,0));
