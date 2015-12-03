@@ -81,7 +81,6 @@ public class StartGame extends JPanel {
         return (String) comboBoxPending.getSelectedItem();
     }
 
-
     public JButton getBtnStartGame() {
         return btnStartGame;
     }
@@ -95,4 +94,5 @@ public class StartGame extends JPanel {
         btnStartGame.addActionListener(l);
         btnMainMenu.addActionListener(l);
     }
+
 }
