@@ -1,10 +1,5 @@
 package SDK;
 
-/**
- * Created by nicolaiostergaard on 12/10/15.
- */
-
-
 // Creates class Score
 public class Score {
 

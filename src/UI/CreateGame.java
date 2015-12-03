@@ -46,7 +46,7 @@ public class CreateGame extends JPanel {
         add(lblusercontrols);
 
         JLabel lblcontrols = new JLabel();
-        lblcontrols.setIcon(new ImageIcon(CreateGame.class.getResource("/res/control-1.png")));
+        lblcontrols.setIcon(new ImageIcon(CreateGame.class.getResource("/res/control.png")));
         lblcontrols.setHorizontalAlignment(SwingConstants.CENTER);
         lblcontrols.setBounds(261, 166, 129, 86);
         add(lblcontrols);

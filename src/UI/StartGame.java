@@ -50,7 +50,7 @@ public class StartGame extends JPanel {
         opponentControls.setColumns(10);
 
         JLabel lblcontrols = new JLabel();
-        lblcontrols.setIcon(new ImageIcon(CreateGame.class.getResource("/res/control-1.png")));
+        lblcontrols.setIcon(new ImageIcon(CreateGame.class.getResource("/res/control.png")));
         lblcontrols.setHorizontalAlignment(SwingConstants.CENTER);
         lblcontrols.setBounds(193, 172, 129, 86);
         add(lblcontrols);

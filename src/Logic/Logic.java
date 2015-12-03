@@ -45,6 +45,7 @@ public class Logic {
 
         screen.gethighscore().ActionListener(new HighscoreActionListener());
 
+        screen.music();
 
     }
 
