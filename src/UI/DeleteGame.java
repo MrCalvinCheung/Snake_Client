@@ -14,6 +14,7 @@ public class DeleteGame extends JPanel {
 
     /**
      * Create the panel.
+     * Create buttons
      */
     public DeleteGame() {
         setLayout(null);
@@ -37,6 +38,10 @@ public class DeleteGame extends JPanel {
         add(Background);
     }
 
+    /**
+     * Arraylist for all the games
+     * @param games
+     */
     public void setDeleteGames(ArrayList<Game> games) {
         DeleteGameComboBox.removeAllItems();
         for (Game g : games) {
@@ -44,18 +49,34 @@ public class DeleteGame extends JPanel {
         }
     }
 
+    /**
+     * to
+     * @return usernames
+     */
     public String getDeleteComboBox() {
         return (String) DeleteGameComboBox.getSelectedItem();
     }
 
+    /**
+     * Delete button for games
+     * @return btnDeleteGame
+     */
     public JButton getBtnDeleteGame() {
         return btnDeleteGame;
     }
 
+    /**
+     * A back to the main menu button
+     * @return btnMainMenu
+     */
     public JButton getBtnMainMenu() {
         return btnMainMenu;
     }
 
+    /**
+     * Actionlistener for buttons
+     * @param l
+     */
 
     public void addActionListener(ActionListener l) {
 
@@ -63,6 +84,9 @@ public class DeleteGame extends JPanel {
         btnMainMenu.addActionListener(l);
     }
 
+    /**
+     * Method to remove an item from the combobox
+     */
     public void removeGame() {
         DeleteGameComboBox.removeItemAt(DeleteGameComboBox.getSelectedIndex());
     }
