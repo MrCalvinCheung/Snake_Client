@@ -69,7 +69,6 @@ public class ServerConnection {
         return output;
 
 
-
 }
 
     public String delete(String path) {

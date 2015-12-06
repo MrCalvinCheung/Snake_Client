@@ -15,6 +15,7 @@ public class UserMenu extends JPanel {
     private JLabel lblPleaseChooseAn;
     /**
      * Create the panel.
+     *
      */
     public UserMenu() {
         setLayout(null);
@@ -57,6 +58,10 @@ public class UserMenu extends JPanel {
 
     }
 
+    /**
+     * Creates the different buttons nothing different than the other UI classes
+     * @return
+     */
     public JButton getBtnStartGame(){
         return btnStartGame;
     }

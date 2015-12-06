@@ -95,4 +95,8 @@ public class StartGame extends JPanel {
         btnMainMenu.addActionListener(l);
     }
 
+    public void clearTextFields() {
+        opponentControls.setText("");
+    }
+
 }

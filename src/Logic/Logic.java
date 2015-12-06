@@ -204,12 +204,13 @@ public class Logic {
                     }
                 }
                 JOptionPane.showMessageDialog(screen, "The winner is: "+startGame.getWinner().getUsername());
+                screen.getstartgame().clearTextFields();
 
             } else if (e.getSource() == screen.getstartgame().getBtnMainMenu()) {
                 screen.show(screen.UserMenu);
             }
 
-        }
+             }
     }
 
 

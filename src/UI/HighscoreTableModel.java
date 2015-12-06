@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 /**
  * Created by MrCalvinCheung on 02/12/2015.
+ * This class creates the Jtable i used to display highscore
+ *
  */
 public class HighscoreTableModel extends AbstractTableModel
 {
@@ -60,8 +62,4 @@ public class HighscoreTableModel extends AbstractTableModel
         return null;
     }
 
-    public Score getSelectedScore(int row)
-    {
-        return highscores.get(row);
     }
-}
