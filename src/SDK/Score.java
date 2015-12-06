@@ -1,6 +1,11 @@
 package SDK;
 
 // Creates class Score
+
+/**
+ * Class where the variables to make the users get a score is here
+ * Template from GH
+ */
 public class Score {
 
     // Declare highScore

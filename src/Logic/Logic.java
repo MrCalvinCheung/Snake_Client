@@ -101,7 +101,7 @@ public class Logic {
 
                 games = api.getGames(currentUser.getId());
                 for (Game g : games)
-                g.getGameId();
+                    g.getGameId();
                 screen.getstartgame().setGames(games);
 
             } else if (e.getSource() == screen.getusermenu().getBtnHighscore()) {
@@ -146,8 +146,10 @@ public class Logic {
                 String message = api.createGame(game);
                 JOptionPane.showMessageDialog(screen, message);
 
-            }
+            } else if (e.getSource() == screen.getstartgame().getBtnMainMenu())
+                screen.show(screen.UserMenu);
         }
+
     }
 
     private class DeleteGameActionListener implements ActionListener {
@@ -158,7 +160,7 @@ public class Logic {
                 screen.show(screen.UserMenu);
             }
 
-                else if (e.getSource()== screen.getdeletegame().getBtnDeleteGame()){
+            else if (e.getSource()== screen.getdeletegame().getBtnDeleteGame()){
                 Game game = new Game();
                 for(Game g : gamestodelete){
                     if (g.getName().equals(screen.getdeletegame().getDeleteComboBox())){
@@ -210,7 +212,7 @@ public class Logic {
                 screen.show(screen.UserMenu);
             }
 
-             }
+        }
     }
 
 

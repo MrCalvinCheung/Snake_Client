@@ -6,6 +6,8 @@ import com.sun.jersey.api.client.WebResource;
 
 /**
  * Created by Calvin on 29/10/2015.
+ * Server connection is the class where we make the methods to call api of the server
+ * I use this to call the api, where we can use the methods created on the server
  */
 public class ServerConnection {
 

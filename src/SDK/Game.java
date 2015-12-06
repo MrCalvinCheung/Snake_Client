@@ -2,6 +2,10 @@ package SDK;
 
 import java.sql.Date;
 
+/**
+ * This class is a template from GitHub
+ * Has all the variables for what a game needs to contain
+ */
 public class Game {
     //Creating the variables needed for the game
     private int gameId;

@@ -1,7 +1,9 @@
 package SDK;
 
 /**
- * Created by jesperbruun on 15/10/15.
+ * Template from GH
+ * All the variables to determine the outcome of the game is here
+ *
  */
 public class Gamer extends User {
 

@@ -4,7 +4,8 @@ import java.sql.Date;
 
 
 /**
- * Created by Oscar on 12-10-2015.
+ * Template from GH
+ * variables that is needed to get users
  */
 //
 public class User {
