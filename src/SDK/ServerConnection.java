@@ -35,6 +35,13 @@ public class ServerConnection {
         return port;
     }
 
+    /**
+     * post method sends data to server
+     * @param json
+     * @param path
+     * @return a message
+     */
+
     public String post(String json, String path){
 
         Client client = Client.create();
@@ -48,6 +55,12 @@ public class ServerConnection {
 
     }
 
+    /**
+     * get method calls on server and gets information
+     * @param path
+     * @return data about users
+     */
+
     public String get(String path){
 
         Client client = Client.create();
@@ -58,6 +71,12 @@ public class ServerConnection {
         return response.getEntity(String.class);
     }
 
+    /**
+     *  put method updates data
+     * @param path
+     * @param json
+     * @return updated informations through database
+     */
     public String put(String path, String json) {
 
 
@@ -72,6 +91,12 @@ public class ServerConnection {
 
 
 }
+
+    /**
+     * Delete method is used when data needs to be removed
+     * @param path
+     * @return a message
+     */
 
     public String delete(String path) {
 
