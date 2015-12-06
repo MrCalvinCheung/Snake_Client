@@ -11,7 +11,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
+/**
+ * Logic class
+ * connects the Api and UI together
+ *
+ */
 public class Logic {
 
     private Screen screen;
@@ -32,6 +36,9 @@ public class Logic {
 
     }
 
+    /**
+     * This method runs all my screens and starts the music
+     */
     public void run() {
         screen.getlogin().addActionListener(new LoginActionListener());
 
@@ -49,6 +56,12 @@ public class Logic {
 
     }
 
+    /**
+     * Login method
+     * currentUser is checked over with how the password and username equals
+     * goes through Login Api
+     * @currentUser
+     */
     private class LoginActionListener implements ActionListener {
 
 

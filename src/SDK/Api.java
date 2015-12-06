@@ -24,6 +24,7 @@ public class Api {
 
         String data = serverConnection.post(new Gson().toJson(user), "login");
         JSONParser parser = new JSONParser();
+
         try {
             Object object = parser.parse(data);
             JSONObject jsonobject = (JSONObject) object;
@@ -48,7 +49,7 @@ public class Api {
         return new Gson().fromJson(jsondata, new TypeToken<ArrayList<User>>(){}.getType());
 
     }
-    //kaldet her gøre at når man har inviteret kan man afhente og deltage i spillet.
+    //kaldet her gøre at når man har inviteret kan man afhente og deltage i spillet. Den kalder vha. userid
     public ArrayList <Game> getGames(int userid){
 
         String jsondata = serverConnection.get("games/pending/"+ userid);

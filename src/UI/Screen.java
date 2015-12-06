@@ -99,7 +99,7 @@ public class Screen extends JFrame {
         try {
 
             // Open an audio input stream.
-            URL url = this.getClass().getClassLoader().getResource("Audio/N.wav");
+            URL url = this.getClass().getClassLoader().getResource("Audio/.wav");
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
             // Get a sound clip resource.
             Clip clip = AudioSystem.getClip();

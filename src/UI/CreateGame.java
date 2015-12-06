@@ -18,13 +18,13 @@ public class CreateGame extends JPanel {
 
     /**
      * Create the panel.
+     * Create buttons
      */
     public CreateGame() {
         setLayout(null);
         setBounds(100, 100, 630, 388);
 
         JLabel lblCreateGame = new JLabel("Create Game");
-        lblCreateGame.setForeground(new Color(0, 128, 0));
         lblCreateGame.setFont(new Font("Lucida Grande", Font.BOLD, 16));
         lblCreateGame.setHorizontalAlignment(SwingConstants.CENTER);
         lblCreateGame.setBounds(235, 27, 159, 50);
@@ -68,6 +68,7 @@ public class CreateGame extends JPanel {
         gameName.setColumns(10);
 
         btnCreateGame = new JButton("Create Game");
+        btnCreateGame.setForeground(new Color(0, 128, 0));
         btnCreateGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
@@ -85,22 +86,45 @@ public class CreateGame extends JPanel {
         add(Background);
     }
 
+    /**
+     * Button to creategame
+     *
+     * @return btnCreateGame
+     */
     public JButton getBtnCreateGame() {
         return btnCreateGame;
     }
+
+    /**
+     * Main Menu button
+     * @return btnMainMenu
+     */
 
     public JButton getBtnMainMenu() {
         return btnMainMenu;
     }
 
+    /**
+     * Textfield to usernames
+     * @return gameName.getText
+     */
     public String getgameName(){
         return gameName.getText();
     }
+
+    /**
+     * String movement controls
+     * @return user control movement textfield
+     */
 
     public String getuserControls() {
         return usercontrols.getText();
     }
 
+    /**
+     * Get a array list of all users
+     * @param users
+     */
     public void setUsers(ArrayList<User>users){
         usercombobox.removeAllItems();
         for (User u: users) {
@@ -108,12 +132,21 @@ public class CreateGame extends JPanel {
         }
     }
 
+    /**
+     * Combobox to display usernames
+     *
+     * @return username
+     */
     public String getUsername(){
 
         return (String) usercombobox.getSelectedItem();
 
     }
 
+    /**
+     * ActionListener for buttons to creategame and to get back to mainmenu
+     * @param l
+     */
 
     public void addActionListener(ActionListener l) {
 
