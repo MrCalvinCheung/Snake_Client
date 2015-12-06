@@ -13,6 +13,7 @@ public class Highscore extends JPanel {
 
     /**
      * Create the panel.
+     * Create buttons
      */
     public Highscore() {
         setLayout(null);
@@ -39,15 +40,29 @@ public class Highscore extends JPanel {
         add(Background);
     }
 
+    /**
+     * button to get back to menu
+     * @return btnMainMenu
+     */
     public JButton getBtnMainMenu(){
         return btnMainMenu;
     }
 
+    /**
+     * refers to HighscoreTableModel class to display the arraylist of score into a Table
+     * @param scores
+     */
     public void setTableModel(ArrayList<Score> scores) {
         HighscoreTableModel tableModel = new HighscoreTableModel(scores);
         table.setModel(tableModel);
 
     }
+
+    /**
+     *  ActionListener to the only button
+     *  Back to mainmenu
+     * @param l
+     */
     public void ActionListener(ActionListener l){
         btnMainMenu.addActionListener(l);
     }
