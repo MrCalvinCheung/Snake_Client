@@ -12,6 +12,7 @@ public class Login extends JPanel {
 
     /**
      * Create the panel.
+     * Create buttons
      */
     public Login() {
         setLayout(null);
@@ -61,21 +62,37 @@ public class Login extends JPanel {
         add(Background);
     }
 
+    /**
+     * Textfield for username to login
+     * @return Username
+     */
     public JTextField getUsername() {
 
         return Username;
     }
 
+    /**
+     * Password field to login, with dots insted of normal text
+     * @return Password
+     */
     public JTextField getPassword() {
 
         return Password;
     }
 
+    /**
+     * Method to clear typed text from both textfields at login Screen
+     * Security wise
+     */
     public void clearTextFields() {
         Username.setText("");
         Password.setText("");
         }
 
+    /**
+     * ActionListener for the Login button
+     * @param l
+     */
     public void addActionListener(ActionListener l){
         btnLogin.addActionListener(l);
     }
