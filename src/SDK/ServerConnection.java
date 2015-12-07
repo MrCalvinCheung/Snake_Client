@@ -72,7 +72,7 @@ public class ServerConnection {
     }
 
     /**
-     *  put method updates data
+     * put method updates data
      * @param path
      * @param json
      * @return updated informations through database

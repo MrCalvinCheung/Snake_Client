@@ -6,7 +6,10 @@ import Logic.Logic;
  */
 
 public class Main {
-
+    /**
+     * Main method makes Logic as an object and starts runs the program
+     * @param args
+     */
     public static void main(String args[]) {
 
 

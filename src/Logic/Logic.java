@@ -84,18 +84,29 @@ public class Logic {
         }
     }
 
+    /**
+     * Actionlistener for the At the user menu' buttons
+     * Buttons at the menu
+     */
     private class UserMenuActionListener implements ActionListener {
 
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            /**
+             * This method returns the games who can be deleted
+             * which will be displayed in the combobox
+             */
             if (e.getSource() == screen.getusermenu().getbtnDeleteGame()) {
                 screen.show(screen.DeleteGame);
                 gamestodelete = api.getGamesToDelete(currentUser.getId());
                 screen.getdeletegame().setDeleteGames(gamestodelete);
             } else if (e.getSource() == screen.getusermenu().getBtnCreateGame()) {
                 screen.show(screen.CreateGame);
+
+                /**
+                 * For loop that gets all the games the currentUser has been invited to play
+                 */
             } else if (e.getSource() == screen.getusermenu().getBtnStartGame()) {
                 screen.show(screen.StartGame);
 
@@ -114,6 +125,12 @@ public class Logic {
         }
     }
 
+
+    /**
+     * CreateGameActionListener contains the the method to Set the host, opponent and gamemapsize
+     * For loop to get all the users who can be invited to games
+     * return message
+     */
     private class CreateGameActionListener implements ActionListener {
 
         @Override
@@ -152,6 +169,11 @@ public class Logic {
 
     }
 
+    /**
+     *  Delete game
+     *  For loop to call on arraylist to display games that can be deleted in the combobox
+     *  returns a message
+     */
     private class DeleteGameActionListener implements ActionListener {
 
         @Override
@@ -178,6 +200,11 @@ public class Logic {
         }
     }
 
+    /**
+     * Start game aka join game shows the pending games through a for loop
+     * calls on api
+     * returns a winner
+     */
 
     private class StartGameActionListener implements ActionListener {
 
