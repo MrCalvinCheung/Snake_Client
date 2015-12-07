@@ -22,7 +22,7 @@ public class Api {
 
         String message = "";
 
-        String data = serverConnection.post(new Gson().toJson(user), "login");
+        String data = serverConnection.post(new Gson().toJson(user), "login/");
         JSONParser parser = new JSONParser();
 
         try {
@@ -44,7 +44,7 @@ public class Api {
 //Kalder på spillerne jeg bruger i min combobox til at vise spillerne i min DB.
     public ArrayList <User> getUsers(){
 
-        String jsondata = serverConnection.get("users");
+        String jsondata = serverConnection.get("users/");
 
         return new Gson().fromJson(jsondata, new TypeToken<ArrayList<User>>(){}.getType());
 
@@ -73,13 +73,13 @@ public class Api {
 
     //StartGame metode oprettes her første kald er til at joine et spi
     public String joinGame(Game game) {
-        String jsondata = serverConnection.put("games/join",new Gson().toJson(game));
+        String jsondata = serverConnection.put("games/join/",new Gson().toJson(game));
         return parseMessage(jsondata);
 
     }
     //andet kald er til at starte selve spillet
     public String startGame (Game game) {
-        String jsondata = serverConnection.put("games/start",new Gson().toJson(game));
+        String jsondata = serverConnection.put("games/start/",new Gson().toJson(game));
         return parseMessage(jsondata);
     }
 
@@ -94,6 +94,7 @@ public class Api {
         return new Gson().fromJson(jsondata, new TypeToken<ArrayList<Score>>(){}.getType());
     }
     //Parse metode der kaldes på hvergang man skal hente Json.
+
     public String parseMessage(String message) {
         JSONParser parser = new JSONParser();
         try {

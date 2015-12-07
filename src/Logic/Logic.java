@@ -115,6 +115,10 @@ public class Logic {
                     g.getGameId();
                 screen.getstartgame().setGames(games);
 
+                /**
+                 * Sets the highscore through the tablemodel
+                 */
+
             } else if (e.getSource() == screen.getusermenu().getBtnHighscore()) {
                 screen.show(screen.Highscore);
                 screen.gethighscore().setTableModel(api.getHighscore());
@@ -162,6 +166,7 @@ public class Logic {
 
                 String message = api.createGame(game);
                 JOptionPane.showMessageDialog(screen, message);
+                screen.show(screen.UserMenu);
 
             } else if (e.getSource() == screen.getstartgame().getBtnMainMenu())
                 screen.show(screen.UserMenu);
@@ -215,26 +220,27 @@ public class Logic {
 
                 Game startGame = null;
 
-                for (Game g : games)
-                {
+                for (Game g : games) {
                     if (screen.getstartgame().getPendingGames().equals(g.getName())) {
                         startGame = g;
                     }
                 }
-                startGame.getOpponent().setControls(screen.getstartgame().getopponentControls());
+                    startGame.getOpponent().setControls(screen.getstartgame().getopponentControls());
 
-                api.joinGame(startGame);
-                api.startGame(startGame);
-                for (User u : api.getUsers())
-                {
-                    if(u.getId()==startGame.getWinner().getId())
-                    {
-                        startGame.getWinner().setUsername(u.getUsername()); //Set når man giver den en "værdi" og get når man henter noget fra objekt.
+                    api.joinGame(startGame);
+                    api.startGame(startGame);
+
+
+                    for (User u : api.getUsers()) {
+                        if (u.getId() == startGame.getWinner().getId()) {
+                            startGame.getWinner().setUsername(u.getUsername()); //Set når man giver den en "værdi" og get når man henter noget fra objekt
+                            //System.out.println(u.getUsername());
+                        }
+
                     }
-                }
-                JOptionPane.showMessageDialog(screen, "The winner is: "+startGame.getWinner().getUsername());
-                screen.getstartgame().clearTextFields();
 
+                JOptionPane.showMessageDialog(screen, "The winner is: " + startGame.getWinner().getUsername());
+                screen.getstartgame().clearTextFields();
             } else if (e.getSource() == screen.getstartgame().getBtnMainMenu()) {
                 screen.show(screen.UserMenu);
             }

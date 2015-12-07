@@ -1,6 +1,4 @@
-package example;
-import Logic.Logic;
-
+package Logic;
 /**
  * Created by Calvin on 29/10/2015.
  */
