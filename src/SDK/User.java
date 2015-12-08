@@ -33,15 +33,25 @@ public class User {
         this.type = type;
     }
 
+    /**
+     * User class to all variables most of isn't used in my program
+     */
     public User () {}
 
     //creating get and set method for all the variables, so they can be used by other classes
 
-
+    /**
+     * This is a method getid
+     * @return id of a user
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *  sets an id to a user
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
@@ -62,10 +72,18 @@ public class User {
         this.lastName = lastName;
     }
 
+    /**
+     *   this is a to getusername
+     * @return username
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * set method for username
+     * @param username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
@@ -74,6 +92,10 @@ public class User {
         return password;
     }
 
+    /**
+     * this method is called to setpassword
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }

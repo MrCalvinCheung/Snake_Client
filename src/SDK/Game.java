@@ -31,18 +31,34 @@ public class Game {
         return mapSize;
     }
 
+    /**
+     * Sets mapsize of the game platform
+     * @param mapSize
+     */
     public void setMapSize(int mapSize) {
         this.mapSize = mapSize;
     }
 
+    /**
+     * method to get name of the game
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * method to set name
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *  get method to GameID
+     * @return Game id
+     */
     //Creating get/set method for all the variables, so they can be used by other classes
     public int getGameId(){
         return gameId;
@@ -56,14 +72,26 @@ public class Game {
         return host;
     }
 
+    /**
+     * set the host of the game
+     * @param host
+     */
     public void setHost(Gamer host){
         this.host = host;
     }
 
+    /**
+     * gets opponent
+     * @return opponent
+     */
     public Gamer getOpponent(){
         return opponent;
     }
 
+    /**
+     * set opponent method
+     * @param opponent
+     */
     public void setOpponent(Gamer opponent){
         this.opponent = opponent;
     }
@@ -76,6 +104,10 @@ public class Game {
         this.status = status;
     }
 
+    /**
+     * to get the winner of the game
+     * @return winner
+     */
     public Gamer getWinner() {
         return winner;
     }

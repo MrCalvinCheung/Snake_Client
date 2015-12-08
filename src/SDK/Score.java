@@ -48,6 +48,10 @@ public class Score {
         this.user = user;
     }
 
+    /**
+     * To get games
+     * @return game
+     */
     public Game getGame() {
         return game;
     }
@@ -56,6 +60,10 @@ public class Score {
         this.game = game;
     }
 
+    /**
+     *  to get scores
+     * @return score
+     */
     public int getScore() {
         return score;
     }

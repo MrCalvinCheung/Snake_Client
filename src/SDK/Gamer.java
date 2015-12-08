@@ -36,6 +36,10 @@ public class Gamer extends User {
         this.kills = kills;
     }
 
+    /**
+     * This method is user to set controls
+     * @param controls
+     */
     public void setControls(String controls) {
         this.controls = controls;
     }
