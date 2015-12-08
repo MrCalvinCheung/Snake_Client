@@ -12,6 +12,7 @@ import com.sun.jersey.api.client.WebResource;
 public class ServerConnection {
 
     public ServerConnection(){
+
         this.hostAddress = "http://localhost";
         this.port = 8888;
     }
