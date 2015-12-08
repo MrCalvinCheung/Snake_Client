@@ -38,6 +38,7 @@ public class Logic {
 
     /**
      * This method runs all my screens and starts the music
+     * used in the main to startup my program
      */
     public void run() {
         screen.getlogin().addActionListener(new LoginActionListener());

@@ -1,4 +1,6 @@
-package Logic;
+package Main;
+
+import Logic.Logic;
 
 /**
  * Created by Calvin on 29/10/2015.
