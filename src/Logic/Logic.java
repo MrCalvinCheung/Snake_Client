@@ -171,6 +171,7 @@ public class Logic {
 
             } else if (e.getSource() == screen.getstartgame().getBtnMainMenu())
                 screen.show(screen.UserMenu);
+                screen.getcreategame().ClearTextField();
         }
 
     }

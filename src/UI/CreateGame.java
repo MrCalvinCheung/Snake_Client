@@ -154,5 +154,9 @@ public class CreateGame extends JPanel {
         btnMainMenu.addActionListener(l);
     }
 
+    public void ClearTextField(){
+        gameName.setText("");
+        usercontrols.setText("");
+    }
 }
 	
